@@ -7,14 +7,14 @@ const initialState = {
       creator: {
         username: "kingkong123",
         location: "Los Angeles, California",
-        profilePicture: "/static/images/avatar/1.jpg",
+        profilePicture: "1",
       },
       likes: 0,
       comments: [
         {
           id: 0,
           postedBy: "John",
-          profilePicture: "/static/images/avatar/2.jpg",
+          profilePicture: "2",
           message: "Hey everyone! First post!",
           liked: false,
           replies: [],
@@ -23,7 +23,7 @@ const initialState = {
         {
           id: 1,
           postedBy: "Sarah",
-          profilePicture: "/static/images/avatar/3.jpg",
+          profilePicture: "3",
           message: "Cool!!!",
           liked: false,
           replies: [],
@@ -31,8 +31,8 @@ const initialState = {
         },
         {
           id: 2,
-          postedBy: "Jimmy",
-          profilePicture: "/static/images/avatar/4.jpg",
+          postedBy: "Krystal",
+          profilePicture: "4",
           message: "Nice one.",
           liked: false,
           replies: [],

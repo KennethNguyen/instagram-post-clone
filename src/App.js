@@ -9,7 +9,13 @@ function App() {
 
     // if the current user does not exist, then we populate the local storage with a user
     if (!currentUser) {
-      localStorage.setItem("user", JSON.stringify({username: "waterguy242", profilePicture: "/static/images/avatar/3.jpg"}));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          username: "waterguy242",
+          profilePicture: "/static/images/avatar/5.jpg",
+        })
+      );
     }
   }, []);
 

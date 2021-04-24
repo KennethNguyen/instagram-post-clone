@@ -24,9 +24,8 @@ const PostsContainer = () => {
 
   return (
     <>
-      <h1>Hi</h1>
       {/* Map all posts */}
-      <Post />
+      <Post postId={0} />
     </>
   );
 };

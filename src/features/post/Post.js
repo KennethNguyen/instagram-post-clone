@@ -1,13 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import PostHeader from "./PostHeader";
 import CommentSection from "./CommentSection";
 import Divider from "@material-ui/core/Divider";
 import AddCommentForm from "./AddCommentForm";
 
 /* A Post component */
-const Post = () => {
+const Post = ({ postId }) => {
+  // fetch the specified post from the postId props passed in
+  const post = useSelector((state) => state.post.posts[postId]);
+  const { creator: postCreator } = post; // destructure postCreator value for the post header
+  const { comments } = post; // destructure the comments array for the comments section of the post
+
   return (
     <>
-      <CommentSection postId={0} />
+      <PostHeader postCreator={postCreator} />
+      <CommentSection comments={comments} />
       <Divider />
       <AddCommentForm />
       {/* Portrait Version */}
