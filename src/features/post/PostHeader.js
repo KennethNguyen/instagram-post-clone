@@ -5,6 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 // import Person1 from "../../images/avatar/1.jpg"
 
+/* The header for a post; creator's avatar, creator username, location of media, and options action button */
 const PostHeader = ({ postCreator }) => {
   const { username, location, profilePicture } = postCreator;
 

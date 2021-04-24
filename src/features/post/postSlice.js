@@ -9,6 +9,7 @@ const initialState = {
         location: "Los Angeles, California",
         profilePicture: "1",
       },
+      media: "flower",
       likes: 0,
       comments: [
         {

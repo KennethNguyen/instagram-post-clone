@@ -40,10 +40,13 @@ Currently it only looks like a chatbox with the add and like comment features an
     },
   ]
 ```
+## Progress Update
+- There's still a few UI components and details left to be done. Since there's 2 versions with similarities, the best approach might be to create one Post component that takes in a version prop to determine whether to accomodate the version 1 or version 2 design of the Instagram post. This can save on import resources and performance when bundling/rendering the app but for the sake of time I'm going to create separate version 1 and version 2 components. After the UI, I'm going to finish the rest of the functionalities.
 
 ## Notes
 - It was my first time working with Redux, but I knew about Redux + Redux Toolkit and I was familiar with state management in React from using Context API + useReducer so getting Redux set up (especially with CRA redux toolkit boilerplate) went pretty quick but there were some issues with syntax and figuring out which part of the redux store state I was working with in the reducers and from useSelector().
 - The biggest hurdle with this app (so far) would have to be designing the post and thinking about all the components and how everything can tie in together. It would have been simple to hardcode everything and simplify the global state to only have the comments since it was only one instagram post, but it was a more exciting challenge to think about the scale of the app and what it would be like if this was designed to handle multiple posts later in the future.
+- Having React read in static local images and adjusting Material UI's CardMedia component styles to display a (static) image took much more googling than it should have. 
 - So far all the testing done has been manual, but I'd eventually like to write unit tests with Jest/React-Testing-Library to learn how to test React components
 
 ## Resources

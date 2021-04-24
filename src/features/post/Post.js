@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import PostHeader from "./PostHeader";
+import PostMedia from "./PostMedia";
 import CommentSection from "./CommentSection";
 import Divider from "@material-ui/core/Divider";
 import AddCommentForm from "./AddCommentForm";
@@ -9,12 +10,15 @@ import AddCommentForm from "./AddCommentForm";
 const Post = ({ postId }) => {
   // fetch the specified post from the postId props passed in
   const post = useSelector((state) => state.post.posts[postId]);
-  const { creator: postCreator } = post; // destructure postCreator value for the post header
+  const { creator } = post; // destructure postCreator value for the post header
   const { comments } = post; // destructure the comments array for the comments section of the post
+  const { media } = post; // destructure the media value for the media content of the post
 
   return (
     <>
-      <PostHeader postCreator={postCreator} />
+      <PostHeader postCreator={creator} />
+      <Divider />
+      <PostMedia postMedia={media} />
       <CommentSection comments={comments} />
       <Divider />
       <AddCommentForm />
