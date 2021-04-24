@@ -14,15 +14,15 @@ const Comment = ({ comment }) => {
     <Box
       marginLeft="auto"
       marginRight="auto"
-      width="95%"
+      width="100%"
       display="flex"
       alignItems="center"
     >
-      <Box display="flex" flexGrow={1}>
+      <Box width={300} display="flex" flexGrow={1}>
         <Typography style={{ fontWeight: 600 }}>
           {comment.postedBy} &nbsp;
         </Typography>
-        <Typography>{comment.message}</Typography>
+        <Typography style={{ minWidth: 0, overflowWrap: "break-word" }}>{comment.message}</Typography>
       </Box>
       <IconButton
         aria-label={comment.liked ? "unlike comment" : "like comment"}

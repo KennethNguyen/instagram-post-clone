@@ -11,6 +11,7 @@ const initialState = {
       },
       media: "flower",
       likes: 0,
+      createdAt: "2021-04-23T14:48:00.000Z",
       comments: [
         {
           id: 0,

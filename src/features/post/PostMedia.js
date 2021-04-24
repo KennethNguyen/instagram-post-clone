@@ -5,7 +5,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 const PostMedia = ({ postMedia }) => {
   return (
     <CardMedia
-      style={{ height: 300, width: 345 }}
+      style={{ height: 300, width: 400 }}
       component="img"
       image={require(`../../images/media/${postMedia}.jpg`).default}
       title={postMedia}

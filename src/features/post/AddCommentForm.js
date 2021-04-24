@@ -33,7 +33,7 @@ const AddCommentForm = () => {
   };
 
   return (
-    <Box padding={1} marginLeft="auto" marginRight="auto" width="80%">
+    <Box padding={1} marginLeft="auto" marginRight="auto" width="90%">
       <form style={{ display: "flex" }} onSubmit={handleSubmitComment}>
         <InputBase
           placeholder="Add a comment..."

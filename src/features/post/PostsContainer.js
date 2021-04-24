@@ -25,7 +25,8 @@ const PostsContainer = () => {
   return (
     <>
       {/* Map all posts */}
-      <Post postId={0} />
+      <Post postId={0} version={1} />
+      {/* <Post postId={0} version={2} /> */}
     </>
   );
 };
