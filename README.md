@@ -46,7 +46,7 @@ Currently the portrait version is almost finished with a few details/features mi
 
 ## Progress Update
 
-- To do items are reply functionality, tweak the comments section of the portrait version to truncate comments and have a 'View all x comments', and tweak the comments section of the landscape version to be scrollable with a fixed comments section height container 
+- Work on reply functionality
 
 ## Notes
 
@@ -63,6 +63,9 @@ Currently the portrait version is almost finished with a few details/features mi
 ## Future Implementation
 - Currently 'isLandscape' attribute for a post isn't actually used since theres no way to switch between the two versions. The property is currently set to true for the landscape version component to showcase the landscape UI design. Ideally when clicking 'View all x comments' in the portrait version will toggle the 'isLandscape' property and switch the post to landscape version.
 - Other features and functionalities for the Instagram post clone
+
+## Notable Errors
+- HTML `<div>` and `<p>` elements nested inside `<p>` element for comment secondary text - [StackOverflow link](https://stackoverflow.com/questions/41928567/div-cannot-appear-as-a-descendant-of-p)
 
 ## Resources
 

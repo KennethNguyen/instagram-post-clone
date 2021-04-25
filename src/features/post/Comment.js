@@ -29,6 +29,7 @@ const Comment = ({ comment, isLandscape }) => {
         </ListItemAvatar>
       )}
       <ListItemText
+        component={'div'}
         primary={
           <Box width={300} display="flex">
             <Typography style={{ fontWeight: 600 }}>
