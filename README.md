@@ -42,13 +42,19 @@ Currently the portrait version is almost finished with a few details/features mi
     },
   ]
 ```
+
 ## Progress Update
-- There's still a few UI components and details left to be done. Since there's 2 versions with similarities, the best approach might be to create one Post component that takes in a version prop to determine whether to accomodate the version 1 or version 2 design of the Instagram post. This can save on import resources and performance when bundling/rendering the app but for the sake of time I'm going to create separate version 1 and version 2 components. After the UI, I'm going to finish the rest of the functionalities. My worries right now is how the landscape version would look since the UI components are mostly accomodated for the portrait version right now.
+
+- Prototype of portrait and landscape version done! Features and UI left to do are to show the likes for comments and implement reply functionality for comments.
 
 ## Notes
+
 - It was my first time working with Redux, but I knew about Redux + Redux Toolkit and I was familiar with state management in React from using Context API + useReducer so getting Redux set up (especially with CRA redux toolkit boilerplate) went pretty quick but there were some issues with syntax and figuring out which part of the redux store state I was working with in the reducers and from useSelector().
 - The biggest hurdle with this app (so far) would have to be designing the post and thinking about all the components and how everything can tie in together. It would have been simple to hardcode everything and simplify the global state to only have the comments since it was only one instagram post, but it was a more exciting challenge to think about the scale of the app and what it would be like if this was designed to handle multiple posts later in the future.
-- Having React read in static local images and adjusting Material UI's CardMedia component styles to display a (static) image took much more googling than it should have. 
+- Having React read in static local images and adjusting Material UI's CardMedia component styles to display a (static) image took much more googling than it should have.
+- Since the interaction with this app is only with 1 user that's hardcoded into local storage, the 'liked' property for a comment will also be the number of likes a comment has (either 0 for false or 1 for true). In a real production app with a database, there would be a 'likes' property for the comment that checks for unique users that liked the comment.
+- The static image dimensions (height, width) was a prop that can be adjusted to make the PostMedia component reusable for both versions
+- Reusing the components from the portrait version to the landscape version was mostly seamless with some new adjustments for style
 - So far all the testing done has been manual, but I'd eventually like to write unit tests with Jest/React-Testing-Library to learn how to test React components
 
 ## Resources
@@ -59,4 +65,3 @@ Currently the portrait version is almost finished with a few details/features mi
 - [Material UI React framework](https://material-ui.com/)
 - [Images](https://unsplash.com/)
 - [Moment.js npm package to find the elpased time of the post's creation date](https://momentjs.com/)
-  

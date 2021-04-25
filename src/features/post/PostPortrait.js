@@ -20,7 +20,7 @@ const PostPortrait = ({ postId }) => {
     <Card>
       <PostHeader postCreator={creator} />
       <Divider />
-      <PostMedia postMedia={media} />
+      <PostMedia postMedia={media} height={300} width={400} />
       <PostActions />
       <Typography style={{ fontWeight: 600, marginLeft: "1rem" }}>
         {likes} likes

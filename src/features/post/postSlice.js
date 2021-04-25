@@ -10,7 +10,7 @@ const initialState = {
         profilePicture: "1",
       },
       media: "flower",
-      likes: 0,
+      likes: 23,
       createdAt: "2021-04-23T14:48:00.000Z",
       comments: [
         {
