@@ -29,6 +29,7 @@ Currently the portrait version is almost finished with a few details/features mi
       media: string // file name to static image resource
       likes: int,
       createdAt: Date().toISOString()
+      isLandscape: boolean, // denotes whether the post is portrait or landscape version
       comments: [
         {
           id: int,
@@ -45,7 +46,7 @@ Currently the portrait version is almost finished with a few details/features mi
 
 ## Progress Update
 
-- Prototype of portrait and landscape version done! Features and UI left to do are to show the likes for comments and implement reply functionality for comments.
+- To do items are reply functionality, tweak the comments section of the portrait version to truncate comments and have a 'View all x comments', and tweak the comments section of the landscape version to be scrollable with a fixed comments section height container 
 
 ## Notes
 
@@ -55,7 +56,13 @@ Currently the portrait version is almost finished with a few details/features mi
 - Since the interaction with this app is only with 1 user that's hardcoded into local storage, the 'liked' property for a comment will also be the number of likes a comment has (either 0 for false or 1 for true). In a real production app with a database, there would be a 'likes' property for the comment that checks for unique users that liked the comment.
 - The static image dimensions (height, width) was a prop that can be adjusted to make the PostMedia component reusable for both versions
 - Reusing the components from the portrait version to the landscape version was mostly seamless with some new adjustments for style
+- The only truly dynamic component with specific UI changes was the comments section. Refactored the comment component to check whether the post version was landscape or portrait to display specific UI details.
+- The components are not scaled with fluid percentages and values (for the most part) so they are not responsive
 - So far all the testing done has been manual, but I'd eventually like to write unit tests with Jest/React-Testing-Library to learn how to test React components
+
+## Future Implementation
+- Currently 'isLandscape' attribute for a post isn't actually used since theres no way to switch between the two versions. The property is currently set to true for the landscape version component to showcase the landscape UI design. Ideally when clicking 'View all x comments' in the portrait version will toggle the 'isLandscape' property and switch the post to landscape version.
+- Other features and functionalities for the Instagram post clone
 
 ## Resources
 

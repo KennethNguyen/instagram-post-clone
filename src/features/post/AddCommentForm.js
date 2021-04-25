@@ -23,6 +23,7 @@ const AddCommentForm = () => {
     const newComment = {
       id: comments.length,
       postedBy: JSON.parse(localStorage.getItem("user")).username,
+      profilePicture: "5",
       message: comment,
       liked: false,
       replies: [],

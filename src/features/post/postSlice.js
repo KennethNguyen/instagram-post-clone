@@ -12,6 +12,7 @@ const initialState = {
       media: "flower",
       likes: 23,
       createdAt: "2021-04-23T14:48:00.000Z",
+      isLandscape: false,
       comments: [
         {
           id: 0,

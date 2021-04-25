@@ -4,7 +4,7 @@ import moment from "moment";
 import PostHeader from "./PostHeader";
 import PostMedia from "./PostMedia";
 import PostActions from "./PostActions";
-import CommentSection from "./CommentSection";
+import CommentList from "./CommentList";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -25,7 +25,7 @@ const PostPortrait = ({ postId }) => {
       <Typography style={{ fontWeight: 600, marginLeft: "1rem" }}>
         {likes} likes
       </Typography>
-      <CommentSection comments={comments} />
+      <CommentList comments={comments} />
       <Typography
         style={{ color: "grey", marginLeft: "1rem", paddingBottom: "1rem" }}
       >

@@ -4,7 +4,7 @@ import moment from "moment";
 import PostHeader from "./PostHeader";
 import PostMedia from "./PostMedia";
 import PostActions from "./PostActions";
-import CommentSection from "./CommentSection";
+import CommentList from "./CommentList";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -39,7 +39,7 @@ const PostLandscape = ({ postId }) => {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <PostHeader postCreator={creator} />
         <Divider />
-        <CommentSection comments={comments} />
+        <CommentList comments={comments} isLandscape={true} />
         <Divider />
         <PostActions />
         <Typography style={{ fontWeight: 600, marginLeft: "1rem" }}>
