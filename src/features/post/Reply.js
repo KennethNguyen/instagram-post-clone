@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCommentLike, toggleReply } from "./postSlice";
-import Reply from "./Reply";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -14,10 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 
-/* A Comment component */
-/* Only show the avatar and subheaders (time elapseds since commented, likes, and reply button) on landscape view */
-const Comment = ({ comment, isLandscape }) => {
-  const { postedBy, message, liked, id, profilePicture, replies } = comment;
+/* A Reply component */
+const Reply = ({ reply, isLandscape }) => {
+  const { postedBy, message, liked, id, profilePicture, replies } = reply;
   const dispatch = useDispatch();
   const [toggleReplies, setToggleReplies] = useState(false);
 
@@ -31,6 +29,7 @@ const Comment = ({ comment, isLandscape }) => {
         <ListItemAvatar>
           <Avatar
             alt={postedBy}
+            style={{ width: 30, height: 30 }}
             src={require(`../../images/avatar/${profilePicture}.jpg`).default}
           />
         </ListItemAvatar>
@@ -38,10 +37,16 @@ const Comment = ({ comment, isLandscape }) => {
       <ListItemText
         primary={
           <Box width={300} display="flex">
-            <Typography style={{ fontWeight: 600 }}>
+            <Typography style={{ fontWeight: 600, fontSize: "0.9rem" }}>
               {postedBy} &nbsp;
             </Typography>
-            <Typography style={{ minWidth: 0, overflowWrap: "break-word" }}>
+            <Typography
+              style={{
+                minWidth: 0,
+                overflowWrap: "break-word",
+                fontSize: "0.9rem",
+              }}
+            >
               {message}
             </Typography>
           </Box>
@@ -50,7 +55,7 @@ const Comment = ({ comment, isLandscape }) => {
           isLandscape && (
             <Box width={300} display="flex" flexDirection="column">
               <Box width={300} display="flex" style={{ gap: 12 }}>
-                <Typography>11h</Typography>
+                <Typography style={{ fontSize: "0.9rem" }}>11h</Typography>
                 {liked && (
                   <Typography style={{ color: "grey" }}>1 like</Typography>
                 )}
@@ -62,6 +67,7 @@ const Comment = ({ comment, isLandscape }) => {
                     backgroundColor: "transparent",
                     padding: "1px 0 0 0",
                     minWidth: 0,
+                    fontSize: "0.8rem",
                   }}
                   onClick={() =>
                     dispatch(toggleReply({ commentId: id, postId: 0 }))
@@ -97,16 +103,13 @@ const Comment = ({ comment, isLandscape }) => {
                   </Button>
                 </Box>
               )}
-              {toggleReplies &&
-                replies.map((reply) => (
-                  <Reply reply={reply} isLandscape={isLandscape} />
-                ))}
             </Box>
           )
         }
       />
       <ListItemSecondaryAction>
         <IconButton
+          size="small"
           aria-label={liked ? "unlike comment" : "like comment"}
           onClick={() =>
             dispatch(toggleCommentLike({ commentId: id, postId: 0 }))
@@ -119,4 +122,4 @@ const Comment = ({ comment, isLandscape }) => {
   );
 };
 
-export default Comment;
+export default Reply;

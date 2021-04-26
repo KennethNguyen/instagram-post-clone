@@ -9,7 +9,7 @@ import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutline
 /* Actions available for a post itself; like, comment, share, bookmark post */
 const PostActions = () => {
   return (
-    <CardActions disableSpacing>
+    <CardActions style={{ padding: 0 }} disableSpacing>
       <IconButton aria-label="like post">
         <FavoriteBorderIcon fontSize="large" />
       </IconButton>

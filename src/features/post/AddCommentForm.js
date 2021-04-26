@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addComment } from "./postSlice";
+import { addComment, resetReplyState, addReply } from "./postSlice";
 import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
 import Button from "@material-ui/core/Button";
@@ -8,9 +8,17 @@ import Button from "@material-ui/core/Button";
 /* Form to add a new comment to an instagram post */
 const AddCommentForm = () => {
   // fetch the comments array of the current post; used for creation of new comment id
+  const replying = useSelector((state) => state.post.posts[0].replying);
+  const [isReply, replyTo] = replying; // isReply is a boolean, replyTo is the int id of the comment to reply to
   const comments = useSelector((state) => state.post.posts[0].comments);
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
+
+  /* monitor the replying state if user decides to reply to someone else */
+  useEffect(() => {
+    setComment(isReply ? `@${comments[replyTo].postedBy} ` : "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [replying]);
 
   // controlled input
   const handleCommentChange = (event) => {
@@ -27,9 +35,14 @@ const AddCommentForm = () => {
       message: comment,
       liked: false,
       replies: [],
-      repliedTo: null,
+      repliedTo: isReply ? replyTo : null,
     };
-    dispatch(addComment({ newComment, postId: 0 }));
+    if (isReply) {
+      dispatch(addReply({ newReply: newComment, postId: 0, commentId: replyTo }));
+      dispatch(resetReplyState({ postId: 0 }));
+    } else {
+      dispatch(addComment({ newComment, postId: 0 }));
+    }
     setComment("");
   };
 
