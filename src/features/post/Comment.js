@@ -26,7 +26,7 @@ const Comment = ({ comment, isLandscape }) => {
   };
 
   return (
-    <ListItem>
+    <ListItem style={{ display: "flex", alignItems: "start" }}>
       {isLandscape && (
         <ListItemAvatar>
           <Avatar
@@ -105,7 +105,7 @@ const Comment = ({ comment, isLandscape }) => {
           )
         }
       />
-      <ListItemSecondaryAction>
+      <ListItemSecondaryAction style={{ position: "absolute", right: 0, top: "2rem" }}>
         <IconButton
           aria-label={liked ? "unlike comment" : "like comment"}
           onClick={() =>

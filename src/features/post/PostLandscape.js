@@ -36,7 +36,7 @@ const PostLandscape = ({ postId }) => {
         width={600}
         style={{ flex: "1 0 auto" }}
       />
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", width: 450 }}>
         <PostHeader postCreator={creator} />
         <Divider />
         <CommentList comments={comments} isLandscape={true} />

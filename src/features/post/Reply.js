@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleCommentLike, toggleReply } from "./postSlice";
+import { toggleReplyLike, toggleReply } from "./postSlice";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -15,7 +15,7 @@ import Button from "@material-ui/core/Button";
 
 /* A Reply component */
 const Reply = ({ reply, isLandscape }) => {
-  const { postedBy, message, liked, id, profilePicture, replies } = reply;
+  const { postedBy, message, liked, id, profilePicture, replies, repliedTo } = reply;
   const dispatch = useDispatch();
   const [toggleReplies, setToggleReplies] = useState(false);
 
@@ -24,9 +24,9 @@ const Reply = ({ reply, isLandscape }) => {
   };
 
   return (
-    <ListItem>
+    <ListItem style={{ display: "flex", alignItems: "start" }}>
       {isLandscape && (
-        <ListItemAvatar>
+        <ListItemAvatar style={{ minWidth: 0 }}>
           <Avatar
             alt={postedBy}
             style={{ width: 30, height: 30 }}
@@ -35,6 +35,7 @@ const Reply = ({ reply, isLandscape }) => {
         </ListItemAvatar>
       )}
       <ListItemText
+        style={{ marginLeft: "1rem" }}
         primary={
           <Box width={300} display="flex">
             <Typography style={{ fontWeight: 600, fontSize: "0.9rem" }}>
@@ -45,6 +46,7 @@ const Reply = ({ reply, isLandscape }) => {
                 minWidth: 0,
                 overflowWrap: "break-word",
                 fontSize: "0.9rem",
+                width: 100,
               }}
             >
               {message}
@@ -107,12 +109,14 @@ const Reply = ({ reply, isLandscape }) => {
           )
         }
       />
-      <ListItemSecondaryAction>
+      <ListItemSecondaryAction
+        style={{ position: "absolute", right: 0, top: "2rem" }}
+      >
         <IconButton
           size="small"
           aria-label={liked ? "unlike comment" : "like comment"}
           onClick={() =>
-            dispatch(toggleCommentLike({ commentId: id, postId: 0 }))
+            dispatch(toggleReplyLike({ commentId: repliedTo, replyId: id, postId: 0 }))
           }
         >
           {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}

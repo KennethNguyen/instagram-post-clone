@@ -6,12 +6,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Using React, Redux, and Material UI to create a clone of the two versions of Instagram posts (mobile portrait and web view landscape) with a few functionality features. Front-end application only with hardcoded mock data and data persistence to local storage. The user is able to tinker around with this application as 'waterguy242' :)
 
+## Screenshots
+<img src="Portrait.png" alt="Portrait Image" width="250px" height="450px">
+<img src="Landscape.png" alt="Portrait Image" width="800px" height="450px">
+
 ## Features
 
 - Add a comment
 - Like a comment
 - Reply to a comment
 - Like a replied comment
+** Every other feature is not functional and all other details (time elapsed, post likes, etc.) are hardcoded
 
 ## Post Data Design
 
@@ -36,16 +41,17 @@ Using React, Redux, and Material UI to create a clone of the two versions of Ins
           profilePicture: string, // string path to static resource
           message: string,
           liked: boolean,
-          replies: [int], // id(s) of comment(s) that replied to this comment
+          replies: [{}], // an array of comment element objects; identical properties to this current comment object
           repliedTo: int || null, // id of comment that this comment replied to or null if not used to reply to any
         },
     },
   ]
 ```
 
-## Progress Update
-
-- Currently working on the final feature, which is to be able to like a replied comment.
+## Running locally
+- Clone this repository
+- Run `npm install` to install all necessary dependencies
+- Run `npm run start` and go to localhost:3001 in local browser to see app
 
 ## Notes / Takeaways
 
@@ -66,7 +72,7 @@ Using React, Redux, and Material UI to create a clone of the two versions of Ins
 - Currently 'isLandscape' attribute for a post isn't actually used since theres no way to switch between the two versions. The property is currently set to true for the landscape version component to showcase the landscape UI design. Ideally when clicking 'View all x comments' in the portrait version will toggle the 'isLandscape' property and switch the post to landscape version.
 - Implement '...more' to shorten long comments
 - Nest replies
-- Fix minor UI details (long comments spacing with username, reply comment liked icon position, position of user avatar and comment liked icon on landscape version when replies are shown)
+- Have specific css style file for components
 - Other features and functionalities for the Instagram post clone
 
 ## Edge Cases Unaccounted

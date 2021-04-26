@@ -29,7 +29,7 @@ const AddCommentForm = () => {
   const handleSubmitComment = (event) => {
     event.preventDefault();
     const newComment = {
-      id: comments.length,
+      id: isReply ? comments[replyTo].replies.length : comments.length,
       postedBy: JSON.parse(localStorage.getItem("user")).username,
       profilePicture: "5",
       message: comment,

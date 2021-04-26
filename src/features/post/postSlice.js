@@ -19,7 +19,7 @@ const initialState = {
           id: 0,
           postedBy: "John",
           profilePicture: "2",
-          message: "Hey everyone! First post!",
+          message: "first comment",
           liked: false,
           replies: [],
           repliedTo: null,
@@ -78,10 +78,22 @@ export const postSlice = createSlice({
     },
     // add a reply to a specified comment
     addReply: (state, action) => {
+      console.log(action.payload.newReply);
       let comment = state.posts[action.payload.postId].comments.find(
         ({ id }) => id === action.payload.commentId
       );
       comment.replies.push(action.payload.newReply);
+    },
+    // toggle the specified reply comment's like property
+    toggleReplyLike: (state, action) => {
+      let comment = state.posts[action.payload.postId].comments.find(
+        ({ id }) => id === action.payload.commentId
+      );
+
+      let reply = comment.replies.find(
+        ({ id }) => id === action.payload.replyId
+      );
+      reply.liked = !reply.liked;
     },
     // reset the reply state after a reply is submitted
     resetReplyState: (state, action) => {
@@ -95,6 +107,7 @@ export const {
   toggleCommentLike,
   fetchPosts,
   toggleReply,
+  toggleReplyLike,
   addReply,
   resetReplyState,
 } = postSlice.actions;
